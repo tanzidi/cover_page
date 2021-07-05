@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="html2canvas.js"></script>
+    <script>
+        function setText(){
+            const regi = document.querySelector("#regiNo").value;
+            const course = document.querySelector("#courseNo").value;
+            const title = document.querySelector("#courseTitle").value;
+            const date = document.querySelector("#examDate").value;
+            let f = date.substring(5, 10);
+            let l = date.substring(0, 4);
+            let finalDate = f+"-"+l;
+
+            document.querySelector("#regiNo1").value = regi;
+            document.querySelector("#courseNo1").value = course;
+            document.querySelector("#courseTitle1").value = title;
+            document.querySelector("#examDate1").value = date;
+
+            document.querySelector("#regiNo2").value = regi;
+            document.querySelector("#courseNo2").value = course;
+            document.querySelector("#courseTitle2").value = title;
+            document.querySelector("#examDate2").value = date;
+            
+        }
+        function saveA(){
+            html2canvas(document.querySelector("#saveImageA")).then(function(canvas) {
+            document.body.appendChild(canvas);
+});
+        }
+        function saveB(){
+            html2canvas(document.querySelector("#saveImageB")).then(function(canvas) {
+            document.body.appendChild(canvas);
+});
+        }
+    </script>
+    <style>
+        body{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: .5fr 1fr 1fr;
+            grid-gap: .4em;
+        }
+
+        #saveImageA, #saveImageB {
+            height: 29.7cm;
+            width: 22cm;
+        }
+        input{
+            height: 1em;
+            width: 100%;
+            border: 0px;
+            border-bottom: 1px dotted black;
+            font-size: .7em;
+            padding: .4em;
+        }
+        button{
+            height: 3em;
+            width: 10em;
+            background-color: aquamarine;
+            color: black;
+            font-size: 1em;
+            border: 0px;
+            border-radius: 1em;
+        }
+        .section{
+            padding: 3.5em;
+            font-size: 1.5em;
+        }
+        .lines{
+            display: grid;
+            grid-template-columns: .5fr 1fr;
+            align-items: center;
+            grid-gap: .4em;
+        }
+        .lines p:nth-child(1){
+            font-weight: bold;
+            
+        }
+        #courseTitle1, #courseTitle2{
+            width: 100%;
+            font-size: .6em;
+        }
+        #inputImage{
+            background-color: aquamarine;
+            border-radius: 1em;
+        }
+        #buttons{
+            display: flex;
+            padding: 10em;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+    <div id="inputImage">
+        <div class="section">
+            <div class="lines">
+                <p>Examination Name :</p>
+                <p>2<sup>nd </sup>Year 1<sup>st</sup> Semester Final</p>
+            </div>
+            <div class="lines">
+                <p>Registration No:</p>
+                <input type="text" id="regiNo">
+            </div>
+            
+            <div class="lines">
+                <p>Course No:</p>
+                <input type="text" id="courseNo">
+            </div>
+            
+            <div class="lines">
+                <p>Course Title:</p>
+                <input type="text" id="courseTitle">
+            </div>
+            
+            <div class="lines">
+                <p>Examination Date:</p>
+                <input type="date" id="examDate">
+            </div>
+            
+        </div>
+        
+    </div>
+
+    <div id="buttons">
+        <button onclick="setText()">Set</button>
+        <button onclick="saveA()">Generate A</button>
+        <button onclick="saveB()">Generate B</button>
+    </div>
+    <div id="saveImageA">
+        <p style="font-size: 3em; text-align: center; font-weight: bold;">Sylhet Engineering College</p>
+        <p style="font-size: 3em; text-align: center; ">Part : A</p>
+        <div class="section">
+            <div class="lines">
+                <p>Examination Name :</p>
+                <p>2<sup>nd </sup>Year 1<sup>st</sup> Semester Final</p>
+            </div>
+            <div class="lines">
+                <p>Registration No:</p>
+                <input type="text" id="regiNo1"readonly>
+            </div>
+            
+            <div class="lines">
+                <p>Course No:</p>
+                <input type="text" id="courseNo1"readonly>
+            </div>
+            
+            <div class="lines">
+                <p>Course Title:</p>
+                <input type="text" id="courseTitle1"readonly>
+            </div>
+            
+            <div class="lines">
+                <p>Examination Date:</p>
+                <input type="date" id="examDate1"readonly>
+            </div>
+            
+        </div>
+        
+    </div>
+    <div id="saveImageB">
+        <p style="font-size: 3em; text-align: center; font-weight: bold;">Sylhet Engineering College</p>
+        <p style="font-size: 3em; text-align: center; ">Part : B</p>
+        <div class="section">
+            <div class="lines">
+                <p>Examination Name :</p>
+                <p>2<sup>nd </sup>Year 1<sup>st</sup> Semester Final</p>
+            </div>
+            <div class="lines">
+                <p>Registration No:</p>
+                <input type="text" id="regiNo2"readonly>
+            </div>
+            
+            <div class="lines">
+                <p>Course No:</p>
+                <input type="text" id="courseNo2"readonly>
+            </div>
+            
+            <div class="lines">
+                <p>Course Title:</p>
+                <input type="text" id="courseTitle2"readonly>
+            </div>
+            
+            <div class="lines">
+                <p>Examination Date:</p>
+                <input type="date" id="examDate2"readonly>
+            </div>
+            
+        </div>
+        
+    </div>
+</body>
+</html>
